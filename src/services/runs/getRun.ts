@@ -11,11 +11,13 @@ export const initLangsmithClient = (): Client => {
 
 export const getRuns = async () => {
   const client = initLangsmithClient();
+  // this works ~2% of the time.
   const shortId = 'plgd_ia4o5xprr';
+  // this small one works 50% of the time. When it does, it still takes ~5-15 seconds to run.
   const shortIdThatWorks = 'plgd_b6kn7j9co';
 
   const runsIterable = client.listRuns({
-    filter: `and(has(tags, "nodeEnv:development"), has(tags, "shortId:${shortId}"))`,
+    filter: `and(has(tags, "shortId:${shortId}"))`,
     projectName: 'development',
   });
 

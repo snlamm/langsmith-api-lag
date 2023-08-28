@@ -2,7 +2,7 @@ import express from 'express';
 import { getRuns } from './getRun.js';
 
 /**
- * Router for /examples
+ * Router for /runs
  */
 export const getRouter = (): express.Router => {
   const router = express.Router();
